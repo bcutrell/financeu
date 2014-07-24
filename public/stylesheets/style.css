@@ -1,4 +1,17 @@
- body {
-padding: 50px;
-font: 14px
+@import "twitter/bootstrap";
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  float: none
+}
+
+.jumbotron {
+  background-color: #e74c3c;
+  margin-bottom: 0px
+}
+
+.top-well {
+  margin-top: 30px;
+  background-color: white;
 }

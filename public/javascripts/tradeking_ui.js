@@ -1,6 +1,17 @@
+var socket = io.connect();
+$(document).ready(function() {
+  getQuoteStream(socket);
+  getQuoteData(socket);
+
+  processQuoteInput(socket);
+  
+});
+
 function processQuoteInput(socket) {
+  $('#quoteButton').click(function() {
     var quote = $('#userQuote').val();
     socket.emit('userQuote', quote);
+  })
 }
 
 function getQuoteData(socket) {
@@ -13,12 +24,20 @@ function getQuoteData(socket) {
   });
 }
 
-var socket = io.connect();
-$(document).ready(function() {
+function getQuoteStream(socket) {
+  socket.on('quoteStream', function(result) {
+    if (result.success) {
+      $('#stream-quote-table').append(
+        '<tr>' + '<td>' + result.quote + '</td>' + '</tr>')
+    }
+  });
+}
 
-  getQuoteData(socket);
-  $('#quoteButton').click(function() {
-    processQuoteInput(socket);
-  })
-  
-});
+function getTradeStream(socket) {
+  socket.on('tradeStream', function(result) {
+    if (result.success) {
+      $('#stream-trade-table').append(
+        '<tr>' + '<td>' + result.trade + '</td>' + '</tr>')
+    }
+  });
+}
