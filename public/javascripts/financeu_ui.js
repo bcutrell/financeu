@@ -14,7 +14,8 @@ $(document).ready(function() {
 });
 
 function getTickerInput(socket, symbols) {
-  $('#tickerForm').submit(function() {
+  $('#tickerForm').submit(function(event) {
+    event.preventDefault();
     var quote = $('#tickerInput').val();
     socket.emit('tickerInput', quote);    
     symbols.unshift([quote.toUpperCase(), quote]);
