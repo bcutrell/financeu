@@ -18,4 +18,10 @@ Possible Add-ons
 Next steps:
 
 + add text
+
 + store data
+
++ update UI with reactJS
+
++ add quandl
+https://www.quandl.com/tools/api
