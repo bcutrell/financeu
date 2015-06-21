@@ -1,0 +1,10 @@
+{
+  "name": "financeU",
+  "version": "0.0.1",
+  "description": "Finance + Coding = good times",
+  "dependencies": {
+    "socket.io": "~0.9.6",
+    "oauth": ">= 0.8.4",
+    "mime": "~1.2.7"
+  }
+}
