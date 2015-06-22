@@ -1,7 +1,7 @@
 {
-  "name": "react-isomorph",
-  "version": "0.0.0",
-  "description": "Isomorphic React Example",
+  "name": "financeU",
+  "version": "0.0.1",
+  "description": "Playing with TradeKing, React, and d3",
   "main": "app.js",
   "scripts": {
     "watch": "watchify app.js -o public/javascripts/bundle.js -v",
@@ -9,7 +9,7 @@
     "build": "npm run browserify",
     "start": "npm install"
   },
-  "author": "Ken Wheeler",
+  "author": "Ben Cutrell",
   "license": "MIT",
   "dependencies": {
     "express": "~4.9.7",
