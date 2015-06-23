@@ -1,11 +1,11 @@
 var React = require('react');
 
+var TickerBox = require('./ticker_box.jsx');
+
 module.exports = FinanceU = React.createClass({
   render: function() {
     return (
-      <h1> a HElkHello </h1>
+      <TickerBox />
     );
   }
 });
-
-

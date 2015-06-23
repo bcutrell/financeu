@@ -111,7 +111,8 @@ var TickerInfoRow = React.createClass({
   },
 
 render: function() {
-    var showTypeCol = (infoCol) => (
+    var showTypeCol = function(infoCol) {
+      return (
 <div className="col-lg-2">
   <div className="alert alert-success min-alert-height" role="alert">
     <div className="text-center"><strong>{infoCol.Name}</strong></div>
@@ -119,6 +120,7 @@ render: function() {
   </div>
 </div>
     );
+    };
 
     return (
 <div className="row">
