@@ -1,5 +1,8 @@
 /** @jsx React.DOM */
 
+var socketio = require('socket.io');
+var io;
+
 var React = require('react');
 var FinanceU = require('./components/main.jsx');
 

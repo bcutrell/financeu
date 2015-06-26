@@ -83,7 +83,7 @@ input:hover:focus::-ms-placeholder {
 #tickerForm {
   width: 500px;
   margin: 50px auto;
-  /*display: none;*/
+  display: none;
 }
 
 input {
