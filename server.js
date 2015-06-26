@@ -30,3 +30,4 @@ var server = http.createServer(app).listen(port, function() {
 
 // Initialize socket.io
 var io = require('socket.io').listen(server);
+

@@ -16,14 +16,14 @@ var TickerInput = React.createClass({
     );
   }
 });
-        
-        // <div class="bad-ticker-box">
-        //   <div class="row">
-        //     <div class="alert alert-danger min-alert-height" role="alert">
-        //       <div id="#badTickerBox" class="text-center"></div>
-        //     </div>
-        //   </div>
-        // </div>
+// Bad ticker handling
+// <div class="bad-ticker-box">
+//   <div class="row">
+//     <div class="alert alert-danger min-alert-height" role="alert">
+//       <div id="#badTickerBox" class="text-center"></div>
+//     </div>
+//   </div>
+// </div>
 
 var TickerInfoRow = React.createClass({
   infoTypes: function () {
@@ -35,10 +35,10 @@ var TickerInfoRow = React.createClass({
     {'Name' :  'EPS', 'Id'  : 'epsBox' }]
   },
 
-render: function() {
-  var displayInfoCol = this.infoTypes().map(function (infoCol) {
+  render: function() {
+    var displayInfoCol = this.infoTypes().map(function (infoCol) {
 
-    return (
+  return (
 <div className="col-lg-2">
   <div className="alert alert-success min-alert-height" role="alert">
     <div className="text-center"><strong>{infoCol.Name}</strong></div>
@@ -48,7 +48,7 @@ render: function() {
     );
   });
 
-    return (
+  return (
 <div className="row">
   { displayInfoCol }
 </div>
