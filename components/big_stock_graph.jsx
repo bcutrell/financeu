@@ -13,4 +13,3 @@ var BigStockGraph = React.createClass({
   }
 
 });
-
