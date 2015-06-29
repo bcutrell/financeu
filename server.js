@@ -29,5 +29,5 @@ var server = http.createServer(app).listen(port, function() {
 });
 
 // Initialize socket.io
+// TODO all socket calls move to lib module
 var io = require('socket.io').listen(server);
-

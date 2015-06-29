@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   $("#tickerForm").fadeIn(500);
-  getTickerInput(socket, symbols)
+  // getTickerInput(socket, symbols)
 });
 
 function newTradeViewGraph(symbols) {
