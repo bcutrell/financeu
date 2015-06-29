@@ -22,7 +22,7 @@ Next steps:
 + store data
 
 + update UI with reactJS
-used setup from https://github.com/scotch-io/react-tweets
+Used build setup from https://github.com/scotch-io/react-tweets
 
 + add quandl
 https://www.quandl.com/tools/api
