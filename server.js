@@ -30,4 +30,6 @@ var server = http.createServer(app).listen(port, function() {
 
 // Initialize socket.io
 // TODO all socket calls move to lib module
-var io = require('socket.io').listen(server);
+// var io = require('socket.io').listen(server);
+var tradeking_stream_handler = require('./lib/tradeking_stream_handler.js')
+tradeking_stream_handler.listen(server);
