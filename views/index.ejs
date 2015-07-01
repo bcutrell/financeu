@@ -5,32 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/css/main.css">
   </head>
 
-<body>
-  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<body>  
     <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="#" class="navbar-brand">FinanceU</a>
-      </div>
-    </div>
-  </header>
-  
-  <div class="jumbotron">
-    <div class="container">
-
+      <h1>FinanceU</h1>
+      <div id="example"></div>
       <div class="row well top-well">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="twelve columns">
             <form id="tickerForm" class="topBefore">
               <input id="tickerInput" type="text" placeholder="TICKER">
-              <input id="submit" type="submit" value="GO!">
+              <input class="button-primary" id="submit" type="submit" value="GO!">
             </form>
           </div>
         </div>
@@ -42,44 +32,30 @@
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>Ask</strong></div>
-              <div id="askBox" class="text-center"></div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>Beta</strong></div>
-              <div id="betaBox" class="text-center"></div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>52 Week High</strong></div>
-              <div id="fiftyTwoWeekHighBox" class="text-center"></div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>52 Week Low</strong></div>
-              <div id="fiftyTwoWeekLowBox" class="text-center"></div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>Name</strong></div>
-              <div id="nameBox" class="text-center"></div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="alert alert-success min-alert-height" role="alert">
-              <div class="text-center"><strong>EPS</strong></div>
-              <div id="epsBox" class="text-center"></div>
-            </div>
-          </div>
+        
+        <div class="row">    
+          <table class="u-full-width">
+            <thead>
+            <tr>
+              <th>Ask</th>
+              <th>Beta</th>
+              <th>52 Week High</th>
+              <th>52 Week Low</th>
+              <th>Name</th>
+              <th>EPS</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td id="askBox"></td>
+              <td id="betaBox"></td>
+              <td id="fiftyTwoWeekHighBox"></td>
+              <td id="fiftyTwoWeekLowBox"></td>
+              <td id="nameBox"></td>
+              <td id="epsBox"></td>
+            </tr>
+            </tbody>
+          </table>     
         </div>
         
         <div class="row">
@@ -89,43 +65,44 @@
         </div>
       </div>
       
-      <div class="row well">
-        <div class="col-lg-6">
+      <div class="row">
+        <div class="six columns">
           
           <div class="row">
-            <div class="col-lg-12">
+            <div class="twelve columns">
               <h3 class="text-center">Quotes</h3>
             </div>
           </div>
-          
-          <div class="row">
+                <div class="row">
+                <div class="twelve columns">
+                    <div id="quoteExchange" class="text-center"></div>
+                </div>
+              </div>
             
-            <div class="col-lg-6">
-              <div class="alert alert-success min-alert-height" role="alert">
-                <div class="text-center"><strong>Bid</strong></div>
-                <div id="quoteBid" class="text-center"></div>
-                <div id="quoteBidSize" class="text-center"></div>
-              </div>
+            <div class="twelve columns">
+              <table class="u-full-width">
+                <thead>
+                  <tr>
+                    <th>Bid</th>
+                    <th>Ask</th>
+                  </tr>  
+                </thead>      
+                <tbody>
+                  <tr>
+                    <td id="quoteBid"></td>
+                    <td id="quoteAsk"></td>
+                  </tr>
+                  
+                  <tr>
+                    <td id="quoteBidSize"></td>
+                    <td id="quoteAskSize"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="col-lg-6">
-              <div class="alert alert-danger min-alert-height" role="alert">
-                <div class="text-center"><strong>Ask</strong></div>
-                <div id="quoteAsk" class="text-center"></div>
-                <div id="quoteAskSize" class="text-center"></div>
-              </div>
-            </div>
-          </div>
           
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="alert alert-info min-alert-height" role="alert">
-                <div id="quoteExchange" class="text-center"></div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="scrollable-table-div">
-            <table class="table">
+          <div>
+            <table class="u-full-width">
               <thead>
                 <tr>
                   <th>Symbol</th>
@@ -138,24 +115,24 @@
           </div>
         </div>
         
-        <div class="col-lg-6">
+        <div class="six columns">
           
           <div class="row">
-            <div class="col-lg-12">
+            <div class="twelve columns">
               <h3 class="text-center">Trades</h3>
             </div>
           </div>
           
           <div class="row">
-            <div class="col-lg-12">
+            <div class="tweleve columns">
               <div class="alert alert-info min-alert-height" role="alert">
                 <div id="tradeExchange" class="text-center"></div>
               </div>
             </div>
           </div>
           
-          <div class="scrollable-table-div">
-            <table class="table trade-table">
+          <div>
+            <table class="u-full-width trade-table">
               <thead>
                 <tr>
                   <th>Symbol</th>
@@ -172,38 +149,38 @@
       </div>
       
       <div class="row">
-        <div class="col-lg-8">
+        <div class="eight columns">
           <p></p>
         </div>
       </div>
       <div class='row'>
-        <div class="col-lg-8">
+        <div class="eight columns">
           <h2>Calculator</h2>
         </div>
-        <div class="col-lg-4">
+        <div class="four columns">
           <p><a href="/home/calculator"><img src="http://a.dryicons.com/images/icon_sets/grace_icons_set/png/256x256/calculator.png"></a></p>
         </div>
       </div>
       
       <div class="row">
-        <div class="col-lg-8">
+        <div class="eight columns">
           <h2>Graphing</h2>
         </div>
-        <div class="col-lg-4"><a href="/home/graph"><img src="http://mauhan.me/wp-content/uploads/2013/05/line_graph_icon.png" height="256px" width="256px"></a></div>
+        <div class="four columns"><a href="/home/graph"><img src="http://mauhan.me/wp-content/uploads/2013/05/line_graph_icon.png" height="256px" width="256px"></a></div>
       </div>
       
       <div class="row">
-        <div class="col-lg-8">
+        <div class="eight columns">
           <h2>News</h2>
         </div>
-        <div class="col-lg-4"><a href="/home/news"><img src="http://www.sans.org/images/design/custom/slider/newspaper-icon.png" height="256px" width="256px"></a></div>
+        <div class="four columns"><a href="/home/news"><img src="http://www.sans.org/images/design/custom/slider/newspaper-icon.png" height="256px" width="256px"></a></div>
       </div>
     </div>  
-  </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js" type="text/javascript"></script>
   <script src='/socket.io/socket.io.js' type='text/javascript'></script>
   <script src='/javascripts/financeu_ui.js' type='text/javascript'></script>
+  <script src='/javascripts/build/app.js'></script>
 </body>
 </html>

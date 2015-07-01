@@ -17,15 +17,13 @@ Possible Add-ons
 
 Next steps:
 
-+ add text
++ More styling
 
 + store data
 
-+ Update build setup using
-https://github.com/banderson/generator-flux-react
++ tweets of the trade game
+
++ delpoy
 
 + add quandl
 https://www.quandl.com/tools/api
-
-+ add stream
-https://github.com/nkzawa/socket.io-stream
