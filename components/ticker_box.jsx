@@ -2,21 +2,18 @@ var React = require('react');
 
 var TickerForm = React.createClass({
   getInitialState: function() {
-     return {ticker: ''};
+     return {tickers: ''};
    },
    
    handleClick: function() {
-    debugger;
-    // This must be changed to =>
-    // React.findDOMNode(this.refs.myTickerInput).focus();
-    // when I update reactjs
-    // this.getDOMNode(this.refs.myTickerInput).focus()
-    // this.setState({ticker: event.target.value});
+    // TODO add all tickers entered
+    var newTicker = React.findDOMNode(this.refs.myTickerInput).value
+    var socket = io.connect();
+    socket.emit('tickerInput', newTicker);
   },
 
   componentDidMount: function(){
-    var socket = io.connect();
-    // socket.on
+    // called directly after mounting
   },
   
   render: function() {
@@ -25,10 +22,7 @@ var TickerForm = React.createClass({
 <div className="row">
   <div className="col-lg-12">
     <form id="tickerForm" className="topBefore">
-      
-      // value={this.state.ticker}
       <input id="tickerInput" type="text" placeholder="TICKER" ref="myTickerInput" />
-
       <input id="submit" type="submit" value="GO!" onClick={this.handleClick} />
     </form>
   </div>
