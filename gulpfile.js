@@ -1,3 +1,6 @@
+// http://kb.imakewebsites.ca/2014/01/04/new-node-wishlist/
+// http://www.sitepoint.com/deploying-heroku-using-gulp-node-git/
+
 var gulp = require('gulp');
 var browserify = require('browserify');
 var reactify = require('reactify');
