@@ -2,5 +2,6 @@
 node_modules
 .DS_Store
 npm-debug.log
-public/javascripts/bundle.js
-
+reactify-setup/public/javascripts/bundle.js
+.editorconfig
+.eslintrc
