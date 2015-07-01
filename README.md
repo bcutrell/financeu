@@ -21,8 +21,11 @@ Next steps:
 
 + store data
 
-+ update UI with reactJS
-Used build setup from https://github.com/scotch-io/react-tweets
++ Update build setup using
+https://github.com/banderson/generator-flux-react
 
 + add quandl
 https://www.quandl.com/tools/api
+
++ add stream
+https://github.com/nkzawa/socket.io-stream
