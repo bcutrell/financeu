@@ -1,4 +1,9 @@
-React.render(
-<h1>Hello, world from React.js!</h1>,
-document.getElementById('example')
-);
+var React = require('react');
+
+module.exports = React.createClass({
+render: function() {
+    return (
+    <h1>Hello, world from a React.js Component! Using Gulp</h1>
+    )
+}
+});
