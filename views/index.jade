@@ -1,0 +1,140 @@
+doctype html
+html(lang='en')
+  head
+    title FinanceU
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='stylesheets/normalize.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/skeleton.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/css/main.css')
+  body
+    .container
+      h1 FinanceU
+      my-app Loading...
+      #example
+      .row.well.top-well
+        .row
+          .twelve.columns
+            form#tickerForm.topBefore
+              input#tickerInput(type='text', placeholder='TICKER')
+              input#submit.button-primary(type='submit', value='GO!')
+        .bad-ticker-box
+          .row
+            .alert.alert-danger.min-alert-height(role='alert')
+              #badTickerBox.text-center
+        .row
+          table.u-full-width
+            thead
+              tr
+                th Ask
+                th Beta
+                th 52 Week High
+                th 52 Week Low
+                th Name
+                th EPS
+            tbody
+              tr
+                td#askBox
+                td#betaBox
+                td#fiftyTwoWeekHighBox
+                td#fiftyTwoWeekLowBox
+                td#nameBox
+                td#epsBox
+        .row
+          .col-lg-12
+            #bigGraph
+      .row
+        .six.columns
+          .row
+            .twelve.columns
+              h3.text-center Quotes
+          .row
+            .twelve.columns
+              #quoteExchange.text-center
+          .twelve.columns
+            table.u-full-width
+              thead
+                tr
+                  th Bid
+                  th Ask
+              tbody
+                tr
+                  td#quoteBid
+                  td#quoteAsk
+                tr
+                  td#quoteBidSize
+                  td#quoteAskSize
+          div
+            table.u-full-width
+              thead
+                tr
+                  th Symbol
+                  th Time
+              tbody#stream-quote-table
+        .six.columns
+          .row
+            .twelve.columns
+              h3.text-center Trades
+          .row
+            .tweleve.columns
+              .alert.alert-info.min-alert-height(role='alert')
+                #tradeExchange.text-center
+          div
+            table.u-full-width.trade-table
+              thead
+                tr
+                  th Symbol
+                  th Last Price
+                  th VWAP
+                  th Time
+              tbody#stream-trade-table
+      .row
+        .eight.columns
+          p
+      .row
+        .eight.columns
+          h2 Calculator
+        .four.columns
+          p
+            a(href='/home/calculator')
+              img(src='http://a.dryicons.com/images/icon_sets/grace_icons_set/png/256x256/calculator.png')
+      .row
+        .eight.columns
+          h2 Graphing
+        .four.columns
+          a(href='/home/graph')
+            img(src='http://mauhan.me/wp-content/uploads/2013/05/line_graph_icon.png', height='256px', width='256px')
+      .row
+        .eight.columns
+          h2 News
+        .four.columns
+          a(href='/home/news')
+            img(src='http://www.sans.org/images/design/custom/slider/newspaper-icon.png', height='256px', width='256px')
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='https://d33t3vvu2t2yu5.cloudfront.net/tv.js', type='text/javascript')
+    script(src='/socket.io/socket.io.js', type='text/javascript')
+    script(src='/javascripts/financeu_ui.js', type='text/javascript')
+    script(src='/javascripts/build/app.js')
+
+    // 1. Load libraries
+    script(src="https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js")
+    script(src="https://code.angularjs.org/tools/typescript.js")
+    script(src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js")
+    script(src="https://code.angularjs.org/2.0.0-beta.0/Rx.js")
+    script(src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js")
+    
+    // 2. Configure SystemJS
+    script(type="text/javascript").
+      System.config({
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {'javascripts': {defaultExtension: 'ts'}}
+      });
+
+    // 3. Bootstrap
+    script(type="text/javascript").
+      System.import('app/boot.ts')
+        .then(null, console.error.bind(console));
+
