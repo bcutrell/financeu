@@ -1,0 +1,117 @@
+extends layout
+
+block content
+  //- MAKE BID AND ASK THEIR OWN BOXES
+  .container
+    h1 FinanceU
+    #example
+    a(href='/demo') A Big Link
+    .row
+      .col-md-12
+        form#tickerForm.form-inline
+          .form-group
+            input#tickerInput.form-control(type='text', placeholder='TICKER')
+          button#submit.btn.btn-default(type='submit')
+            | GO!
+    .bad-ticker-box(style='display:none;')
+      .row
+        .alert.alert-danger.min-alert-height(role='alert')
+          #badTickerBox.text-center
+    .row
+      .col-md-12
+        .well.well-lg
+          table.table
+            thead
+              tr
+                th Ask
+                th Beta
+                th 52 Week High
+                th 52 Week Low
+                th Name
+                th EPS
+            tbody
+              tr
+                td#askBox
+                td#betaBox
+                td#fiftyTwoWeekHighBox
+                td#fiftyTwoWeekLowBox
+                td#nameBox
+                td#epsBox
+    .row
+      .col-md-12
+        #bigGraph
+    .row
+      .col-md-6
+        .row
+          .col-md-12
+            h3.text-center Quotes
+        .row
+          .col-md-12
+            #quoteExchange.text-center
+        .col-md-12
+          table.table
+            thead
+              tr
+                th Bid
+                th Ask
+            tbody
+              tr
+                td#quoteBid
+                td#quoteAsk
+              tr
+                td#quoteBidSize
+                td#quoteAskSize
+        .well.well-lg
+          table.table
+            thead
+              tr
+                th Symbol
+                th Time
+            tbody#stream-quote-table
+      .col-md-6
+        .row
+          .col-md-12
+            h3.text-center Trades
+        .row
+          .col-md-12
+            .alert.alert-info(role='alert')
+              #tradeExchange.text-center
+        .well.well-lg
+          table.table.trade-table
+            thead
+              tr
+                th Symbol
+                th Last Price
+                th VWAP
+                th Time
+            tbody#stream-trade-table
+    .row
+      .col-md-8
+        p
+    .row
+      .col-md-8
+        h2 Calculator
+      .col-md-4
+        p
+          a(href='/home/calculator')
+            img(src='http://a.dryicons.com/images/icon_sets/grace_icons_set/png/256x256/calculator.png')
+    .row
+      .col-md-8
+        h2 Graphing
+      .col-md-4
+        a(href='/home/graph')
+          img(src='http://mauhan.me/wp-content/uploads/2013/05/line_graph_icon.png', height='256px', width='256px')
+    .row
+      .col-md-8
+        h2 News
+      .col-md-4
+        a(href='/home/news')
+          img(src='http://www.sans.org/images/design/custom/slider/newspaper-icon.png', height='256px', width='256px')
+
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+  script(src='https://d33t3vvu2t2yu5.cloudfront.net/tv.js', type='text/javascript')
+  script(src='/socket.io/socket.io.js', type='text/javascript')
+  script(src='bower_components/bootstrap/dist/js/bootstrap.min.js', type='text/javascript')
+  script(src='/javascripts/financeu_ui.js', type='text/javascript')
+  script(src='/javascripts/build/app.js')
