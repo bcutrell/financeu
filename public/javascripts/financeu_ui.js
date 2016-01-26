@@ -49,7 +49,10 @@ function getQuoteStream(socket) {
       $('#quoteAsk').text(result.ask);
       $('#quoteAskSize').text(result.askSize);
       $('#symbol').text(result.symbol);
-      $('#quoteExchange').text(result.exchange);
+
+      // exhange no longer working
+      // $('#quoteExchange').text(result.exchange);
+
       $('#stream-quote-table').prepend(
         '<tr>' +
         '<td>' + result.symbol + '</td>' +
@@ -69,7 +72,10 @@ function getTradeStream(socket) {
     if (result.success) {
       var date = new Date(result.datetime);
       var time = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");      
-      $('#tradeExchange').text(result.exchange);
+
+      // exhange no longer working
+      // $('#tradeExchange').text(result.exchange);
+      
       $('#stream-trade-table').prepend(
         '<tr>' + 
         '<td>' + result.symbol + '</td>' + 
