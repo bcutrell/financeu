@@ -4,7 +4,6 @@ block content
   //- MAKE BID AND ASK THEIR OWN BOXES
   .container
     h1 FinanceU
-    #example
     a(href='/demo') A Big Link
     .row
       .col-md-12
@@ -17,30 +16,16 @@ block content
       .row
         .alert.alert-danger.min-alert-height(role='alert')
           #badTickerBox.text-center
+
     br
     .row
       .col-md-12
         .well.well-lg
-          table.table
-            thead
-              tr
-                th Ask
-                th Beta
-                th 52 Week High
-                th 52 Week Low
-                th Name
-                th EPS
-            tbody
-              tr
-                td#askBox
-                td#betaBox
-                td#fiftyTwoWeekHighBox
-                td#fiftyTwoWeekLowBox
-                td#nameBox
-                td#epsBox
+          #stockTable
     .row
       .col-md-12
         #bigGraph
+
     .row
       .col-md-6
         .row
