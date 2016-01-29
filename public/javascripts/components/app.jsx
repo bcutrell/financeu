@@ -1,7 +1,13 @@
 var React = require('react');
-var HelloWorld = require('./example.jsx');
+var StockTable = require('./stock_table.jsx').StockTable;
+var TickerForm = require('./stock_table.jsx').TickerForm;
 
 React.render(
-    <HelloWorld />,
-    document.getElementById('example')
+    <StockTable />,
+    document.getElementById('stockTable')
+);
+
+React.render(
+    <TickerForm />,
+    document.getElementById('tickerFormReact')
 );

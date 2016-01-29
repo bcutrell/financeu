@@ -10,18 +10,18 @@ $(document).ready(function() {
   getQuoteStream(socket);
   getTradeStream(socket);
   getQuoteData(socket);
-  getTickerInput(socket, symbols)
+  // getTickerInput(socket, symbols)
 });
 
-function getTickerInput(socket, symbols) {
-  $('#tickerForm').submit(function(event) {
-    event.preventDefault();
-    var quote = $('#tickerInput').val();
-    socket.emit('tickerInput', quote);    
-    symbols.unshift([quote.toUpperCase(), quote]);
-    newTradeViewGraph(symbols);
-  })
-}
+// function getTickerInput(socket, symbols) {
+//   $('#tickerForm').submit(function(event) {
+//     event.preventDefault();
+//     var quote = $('#tickerInput').val();
+//     socket.emit('tickerInput', quote);    
+//     symbols.unshift([quote.toUpperCase(), quote]);
+//     newTradeViewGraph(symbols);
+//   })
+// }
 
 function getQuoteData(socket) {
   socket.on('quoteData', function(result) {
@@ -49,7 +49,10 @@ function getQuoteStream(socket) {
       $('#quoteAsk').text(result.ask);
       $('#quoteAskSize').text(result.askSize);
       $('#symbol').text(result.symbol);
-      $('#quoteExchange').text(result.exchange);
+
+      // exhange no longer working
+      // $('#quoteExchange').text(result.exchange);
+
       $('#stream-quote-table').prepend(
         '<tr>' +
         '<td>' + result.symbol + '</td>' +
@@ -69,7 +72,10 @@ function getTradeStream(socket) {
     if (result.success) {
       var date = new Date(result.datetime);
       var time = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");      
-      $('#tradeExchange').text(result.exchange);
+
+      // exhange no longer working
+      // $('#tradeExchange').text(result.exchange);
+      
       $('#stream-trade-table').prepend(
         '<tr>' + 
         '<td>' + result.symbol + '</td>' + 
@@ -82,19 +88,5 @@ function getTradeStream(socket) {
         $("#stream-trade-table tr:last").remove();
       }
     }
-  });
-}
-
-function newTradeViewGraph(symbols) {
-  new TradingView.MediumWidget({
-    "container_id": "bigGraph",
-    "symbols": symbols,
-    "gridLineColor": "#E9E9EA",
-    "fontColor": "#83888D",
-    "underLineColor": "#F0F0F0",
-    "timeAxisBackgroundColor": "#E9EDF2",
-    "trendLineColor": "#FF7965",
-    "width": '100%',
-    "height": 350
   });
 }

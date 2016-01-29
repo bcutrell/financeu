@@ -31,7 +31,9 @@ function drainQueue() {
         currentQueue = queue;
         queue = [];
         while (++queueIndex < len) {
-            currentQueue[queueIndex].run();
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
         }
         queueIndex = -1;
         len = queue.length;
@@ -83,7 +85,6 @@ process.binding = function (name) {
     throw new Error('process.binding is not supported');
 };
 
-// TODO(shtylman)
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
@@ -19810,22 +19811,113 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":29}],157:[function(require,module,exports){
 var React = require('react');
-var HelloWorld = require('./example.jsx');
+var StockTable = require('./stock_table.jsx').StockTable;
+var TickerForm = require('./stock_table.jsx').TickerForm;
 
 React.render(
-    React.createElement(HelloWorld, null),
-    document.getElementById('example')
+    React.createElement(StockTable, null),
+    document.getElementById('stockTable')
 );
 
-},{"./example.jsx":158,"react":156}],158:[function(require,module,exports){
-var React = require('react');
+React.render(
+    React.createElement(TickerForm, null),
+    document.getElementById('tickerFormReact')
+);
 
-module.exports = React.createClass({displayName: "exports",
+},{"./stock_table.jsx":158,"react":156}],158:[function(require,module,exports){
+var React = require('react');
+var socket = io.connect();
+
+var socket = io.connect();
+var symbols = []
+
+StockTable = React.createClass({displayName: "StockTable",
+
+  // socket.on('quoteData', function(result) {
+  //   if (result.success) {
+  //     alert('hello')
+  //   }
+ // componentDidMount: function () {
+ //    socket.on('quoteData', alert('hello'));
+ //  },
+
 render: function() {
     return (
-    React.createElement("h1", null, "Hello, world from a React.js Component! Using Gulp")
+React.createElement("table", {className: "table"}, 
+  React.createElement("thead", null, 
+    React.createElement("tr", null, 
+      React.createElement("th", null, "Ask"), 
+      React.createElement("th", null, "Beta"), 
+      React.createElement("th", null, "52 Week High"), 
+      React.createElement("th", null, "52 Week Low"), 
+      React.createElement("th", null, "Name"), 
+      React.createElement("th", null, "EPS")
     )
+  ), 
+  React.createElement("tbody", null, 
+    React.createElement("tr", null, 
+      React.createElement("td", {id: "askBox"}), 
+      React.createElement("td", {id: "betaBox"}), 
+      React.createElement("td", {id: "fiftyTwoWeekHighBox"}), 
+      React.createElement("td", {id: "fiftyTwoWeekLowBox"}), 
+      React.createElement("td", {id: "nameBox"}), 
+      React.createElement("td", {id: "epsBox"})
+    )
+  )
+)
+)
+
 }
 });
+
+
+TickerForm = React.createClass({displayName: "TickerForm",
+
+  handleSubmit: function() {
+    event.preventDefault();
+    var quote = $('#tickerInput').val();
+    socket.emit('tickerInput', quote);
+    symbols.unshift([quote.toUpperCase(), quote]);
+    this.newTradeViewGraph(symbols);
+  },
+  
+  newTradeViewGraph: function(symbols) {
+    new TradingView.MediumWidget({
+      "container_id": "bigGraph",
+      "symbols": symbols,
+      "gridLineColor": "#E9E9EA",
+      "fontColor": "#83888D",
+      "underLineColor": "#F0F0F0",
+      "timeAxisBackgroundColor": "#E9EDF2",
+      "trendLineColor": "#FF7965",
+      "width": '100%',
+      "height": 350
+    });
+  },
+
+  render: function() {
+    return (
+React.createElement("div", {className: "text-center"}, 
+  React.createElement("form", {id: "tickerForm", className: "form-inline", onSubmit: this.handleSubmit}, 
+    React.createElement("div", {className: "form-group"}, 
+      React.createElement("input", {id: "tickerInput", type: "text", placeholder: "TICKER", className: "form-control"})
+    ), 
+    React.createElement("div", {className: "text-center"}, 
+      React.createElement("button", {id: "submit", type: "submit", className: "btn btn-default"}, "Submit")
+    )
+  ), 
+  React.createElement("div", {style: { display: 'none'}, className: "bad-ticker-box"}, 
+    React.createElement("div", {className: "row"}, 
+      React.createElement("div", {role: "alert", className: "alert alert-danger min-alert-height"}, 
+        React.createElement("div", {id: "badTickerBox", className: "text-center"})
+      )
+    )
+  )
+)
+  )
+  }
+})
+
+module.exports = { StockTable: StockTable, TickerForm: TickerForm }
 
 },{"react":156}]},{},[157]);
