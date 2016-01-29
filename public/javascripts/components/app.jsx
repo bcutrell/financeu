@@ -11,3 +11,4 @@ React.render(
     <TickerForm />,
     document.getElementById('tickerFormReact')
 );
+

@@ -10,18 +10,7 @@ $(document).ready(function() {
   getQuoteStream(socket);
   getTradeStream(socket);
   getQuoteData(socket);
-  // getTickerInput(socket, symbols)
 });
-
-// function getTickerInput(socket, symbols) {
-//   $('#tickerForm').submit(function(event) {
-//     event.preventDefault();
-//     var quote = $('#tickerInput').val();
-//     socket.emit('tickerInput', quote);    
-//     symbols.unshift([quote.toUpperCase(), quote]);
-//     newTradeViewGraph(symbols);
-//   })
-// }
 
 function getQuoteData(socket) {
   socket.on('quoteData', function(result) {
