@@ -19826,48 +19826,40 @@ React.render(
 
 },{"./stock_table.jsx":158,"react":156}],158:[function(require,module,exports){
 var React = require('react');
-var socket = io.connect();
 
+// Declare some Vars
 var socket = io.connect();
 var symbols = []
 
 StockTable = React.createClass({displayName: "StockTable",
 
-  // socket.on('quoteData', function(result) {
-  //   if (result.success) {
-  //     alert('hello')
-  //   }
- // componentDidMount: function () {
- //    socket.on('quoteData', alert('hello'));
- //  },
+  getInitialState: function(){
+    return {
+        tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
+        rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
+    }
+  },
 
-render: function() {
+  render: function() {
+    var headers = this.state.tableHeaders.map(function(header,index) {
+      return React.createElement("th", {key: index}, header)
+    });
+
+    var rows = this.state.rowIDs.map(function(rowID,index) {
+      return React.createElement("td", {id: rowID, key: index})
+    });
+
     return (
 React.createElement("table", {className: "table"}, 
   React.createElement("thead", null, 
-    React.createElement("tr", null, 
-      React.createElement("th", null, "Ask"), 
-      React.createElement("th", null, "Beta"), 
-      React.createElement("th", null, "52 Week High"), 
-      React.createElement("th", null, "52 Week Low"), 
-      React.createElement("th", null, "Name"), 
-      React.createElement("th", null, "EPS")
-    )
+    React.createElement("tr", null, " ",  headers, " ")
   ), 
   React.createElement("tbody", null, 
-    React.createElement("tr", null, 
-      React.createElement("td", {id: "askBox"}), 
-      React.createElement("td", {id: "betaBox"}), 
-      React.createElement("td", {id: "fiftyTwoWeekHighBox"}), 
-      React.createElement("td", {id: "fiftyTwoWeekLowBox"}), 
-      React.createElement("td", {id: "nameBox"}), 
-      React.createElement("td", {id: "epsBox"})
-    )
+    React.createElement("tr", null, " ",  rows, " ")
   )
 )
-)
-
-}
+    )
+  }
 });
 
 
@@ -19918,6 +19910,9 @@ React.createElement("div", {className: "text-center"},
   }
 })
 
-module.exports = { StockTable: StockTable, TickerForm: TickerForm }
+module.exports = { 
+  StockTable: StockTable, 
+  TickerForm: TickerForm 
+}
 
 },{"react":156}]},{},[157]);

@@ -1,46 +1,38 @@
 var React = require('react');
-var socket = io.connect();
 
+// Declare some Vars
 var socket = io.connect();
 var symbols = []
 
 StockTable = React.createClass({
 
-  // socket.on('quoteData', function(result) {
-  //   if (result.success) {
-  //     alert('hello')
-  //   }
- // componentDidMount: function () {
- //    socket.on('quoteData', alert('hello'));
- //  },
+  getInitialState: function(){
+    return {
+        tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
+        rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
+    }
+  },
 
-render: function() {
+  render: function() {
+    var headers = this.state.tableHeaders.map(function(header,index) {
+      return <th key={index}>{header}</th>
+    });
+
+    var rows = this.state.rowIDs.map(function(rowID,index) {
+      return <td id={rowID} key={index}></td>
+    });
+
     return (
 <table className="table">
   <thead>
-    <tr>
-      <th>Ask</th>
-      <th>Beta</th>
-      <th>52 Week High</th>
-      <th>52 Week Low</th>
-      <th>Name</th>
-      <th>EPS</th>
-    </tr>
+    <tr> { headers } </tr>
   </thead>
   <tbody>
-    <tr>
-      <td id="askBox"></td>
-      <td id="betaBox"></td>
-      <td id="fiftyTwoWeekHighBox"></td>
-      <td id="fiftyTwoWeekLowBox"></td>
-      <td id="nameBox"></td>
-      <td id="epsBox"></td>
-    </tr>
+    <tr> { rows } </tr>
   </tbody>
 </table>
-)
-
-}
+    )
+  }
 });
 
 
@@ -91,4 +83,7 @@ TickerForm = React.createClass({
   }
 })
 
-module.exports = { StockTable: StockTable, TickerForm: TickerForm }
+module.exports = { 
+  StockTable: StockTable, 
+  TickerForm: TickerForm 
+}
