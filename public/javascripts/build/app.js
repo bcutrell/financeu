@@ -19813,6 +19813,7 @@ module.exports = require('./lib/React');
 var React = require('react');
 var StockTable = require('./stock_table.jsx').StockTable;
 var TickerForm = require('./stock_table.jsx').TickerForm;
+var QuotesTable = require('./stock_table.jsx').QuotesTable;
 
 React.render(
     React.createElement(StockTable, null),
@@ -19822,6 +19823,11 @@ React.render(
 React.render(
     React.createElement(TickerForm, null),
     document.getElementById('tickerFormReact')
+);
+
+React.render(
+    React.createElement(QuotesTable, null),
+    document.getElementById('quotesTable')
 );
 
 },{"./stock_table.jsx":158,"react":156}],158:[function(require,module,exports){
@@ -19835,8 +19841,8 @@ StockTable = React.createClass({displayName: "StockTable",
 
   getInitialState: function(){
     return {
-        tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
-        rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
+      tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
+      rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
     }
   },
 
@@ -19869,6 +19875,7 @@ TickerForm = React.createClass({displayName: "TickerForm",
     event.preventDefault();
     var quote = $('#tickerInput').val();
     socket.emit('tickerInput', quote);
+    debugger;
     symbols.unshift([quote.toUpperCase(), quote]);
     this.newTradeViewGraph(symbols);
   },
@@ -19910,9 +19917,57 @@ React.createElement("div", {className: "text-center"},
   }
 })
 
+
+QuotesTable = React.createClass({displayName: "QuotesTable",
+
+  render: function() {
+    return (
+React.createElement("div", null, 
+  React.createElement("div", {className: "row"}, 
+    React.createElement("div", {className: "col-md-12"}, 
+      React.createElement("h3", {className: "text-center"}, "Quotes")
+    )
+  ), 
+  React.createElement("div", {className: "row"}, 
+    React.createElement("div", {className: "col-md-4 col-md-offset-2"}, 
+      React.createElement("div", {className: "well text-center"}, 
+        React.createElement("h5", null, "Bid"), 
+        React.createElement("p", {id: "quoteBid"}), 
+        React.createElement("p", {id: "quoteBidSize"})
+      )
+    ), 
+    React.createElement("div", {className: "col-md-4"}, 
+      React.createElement("div", {className: "well text-center"}, 
+        React.createElement("h5", null, "Ask"), 
+        React.createElement("p", {id: "quoteAsk"}), 
+        React.createElement("p", {id: "quoteAskSize"})
+      )
+    )
+  ), 
+  React.createElement("div", {className: "row"}, 
+    React.createElement("div", {className: "col-md-12"}, 
+      React.createElement("div", {className: "well well-lg"}, 
+        React.createElement("table", {className: "table"}, 
+          React.createElement("thead", null, 
+            React.createElement("tr", null, 
+              React.createElement("th", null, "Symbol"), 
+              React.createElement("th", null, "Time")
+            )
+          ), 
+          React.createElement("tbody", {id: "stream-quote-table"})
+        )
+      )
+    )
+  )
+)
+    )
+  }
+})
+
 module.exports = { 
   StockTable: StockTable, 
-  TickerForm: TickerForm 
+  TickerForm: TickerForm,
+  QuotesTable: QuotesTable
 }
 
 },{"react":156}]},{},[157]);
