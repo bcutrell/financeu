@@ -8,8 +8,8 @@ StockTable = React.createClass({
 
   getInitialState: function(){
     return {
-        tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
-        rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
+      tableHeaders: ["Ask","Beta","52 Week High","52 Week Low","Name","EPS"],
+      rowIDs: ["askBox","betaBox","fiftyTwoWeekHighBox","fiftyTwoWeekLowBox","nameBox","epsBox"]
     }
   },
 
@@ -83,7 +83,55 @@ TickerForm = React.createClass({
   }
 })
 
+
+QuotesTable = React.createClass({
+
+  render: function() {
+    return (
+<div>
+  <div className="row">
+    <div className="col-md-12">
+      <h3 className="text-center">Quotes</h3>
+    </div>
+  </div>
+  <div className="row">
+    <div className="col-md-4 col-md-offset-2">
+      <div className="well text-center">
+        <h5>Bid</h5>
+        <p id="quoteBid"></p>
+        <p id="quoteBidSize"></p>
+      </div>
+    </div>
+    <div className="col-md-4">
+      <div className="well text-center">
+        <h5>Ask</h5>
+        <p id="quoteAsk"></p>
+        <p id="quoteAskSize"></p>
+      </div>
+    </div>
+  </div>
+  <div className="row">
+    <div className="col-md-12">
+      <div className="well well-lg">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="stream-quote-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+    )
+  }
+})
+
 module.exports = { 
   StockTable: StockTable, 
-  TickerForm: TickerForm 
+  TickerForm: TickerForm,
+  QuotesTable: QuotesTable
 }
