@@ -19811,9 +19811,14 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":29}],157:[function(require,module,exports){
 var React = require('react');
+
 var StockTable = require('./stock_table.jsx').StockTable;
 var TickerForm = require('./stock_table.jsx').TickerForm;
 var QuotesTable = require('./stock_table.jsx').QuotesTable;
+var TradesTable = require('./stock_table.jsx').TradesTable
+
+var ProjectGrid = require('./project_grid.jsx')
+
 
 React.render(
     React.createElement(StockTable, null),
@@ -19830,7 +19835,63 @@ React.render(
     document.getElementById('quotesTable')
 );
 
-},{"./stock_table.jsx":158,"react":156}],158:[function(require,module,exports){
+React.render(
+    React.createElement(TradesTable, null),
+    document.getElementById('tradesTable')
+);
+
+React.render(
+    React.createElement(ProjectGrid, null),
+    document.getElementById('projectGrid')
+);
+
+},{"./project_grid.jsx":158,"./stock_table.jsx":159,"react":156}],158:[function(require,module,exports){
+var React = require('react');
+
+ProjectGrid = React.createClass({displayName: "ProjectGrid",
+
+  getInitialState: function(){
+    return {
+      projectIdeas: [{
+        name: "Project One",
+        icon: "fa fa-bar-chart fa-5x fa-border",
+        isFirstinRow: true
+      }]
+    }
+  },
+
+  render: function() {
+    var ideas = this.state.projectIdeas.map(function(idea, index) {
+      openRow = closeRow = null;
+      if (idea.isFirstinRow) {
+        // These needs to be a new react class
+        openRow = React.createElement("div", {className: "row"}, 
+        "closeRow = ")
+      }
+
+      return (
+        React.createElement("div", {className: "col-md-4"}, 
+          React.createElement("h3", {className: "text-center", key: index}, idea.name), 
+          
+          React.createElement("div", {className: "text-center"}, 
+            React.createElement("i", {className: idea.icon})
+          )
+        )
+      )
+    });
+
+    return (
+React.createElement("div", {className: "row"}, 
+  ideas
+)
+    )
+  }
+});
+
+
+module.exports = ProjectGrid
+
+},{"react":156}],159:[function(require,module,exports){
 var React = require('react');
 
 // Declare some Vars
@@ -19967,9 +20028,30 @@ TradesTable = React.createClass({displayName: "TradesTable",
   
   render: function() {
     return (
-      React.createElement("div", null
-      
+React.createElement("div", null, 
+React.createElement("div", {className: "row"}, 
+  React.createElement("div", {className: "col-md-12"}, 
+    React.createElement("h3", {className: "text-center"}, "Trades")
+  )
+), 
+React.createElement("div", {className: "row"}, 
+  React.createElement("div", {className: "col-md-12"}, 
+    React.createElement("div", {className: "well well-lg"}, 
+      React.createElement("table", {className: "table trade-table"}, 
+        React.createElement("thead", null, 
+          React.createElement("tr", null, 
+            React.createElement("th", null, "Symbol"), 
+            React.createElement("th", null, "Last Price"), 
+            React.createElement("th", null, "VWAP"), 
+            React.createElement("th", null, "Time")
+          )
+        ), 
+        React.createElement("tbody", {id: "stream-trade-table"})
       )
+    )
+  )
+)
+)
     )
   }
 
@@ -19978,7 +20060,8 @@ TradesTable = React.createClass({displayName: "TradesTable",
 module.exports = { 
   StockTable: StockTable, 
   TickerForm: TickerForm,
-  QuotesTable: QuotesTable
+  QuotesTable: QuotesTable,
+  TradesTable: TradesTable
 }
 
 },{"react":156}]},{},[157]);
