@@ -14,7 +14,6 @@ $(document).ready(function() {
 
 function getQuoteData(socket) {
   socket.on('quoteData', function(result) {
-    debugger;
     if (result.success) {
       $('#askBox').text(result.ask);
       $('#betaBox').text(result.beta);

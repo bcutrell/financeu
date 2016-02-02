@@ -28,7 +28,7 @@ block content
     
     // Header
     a(name='about')
-    .intro-header
+    .intro-header.big-red-box
       .container
         .row
           .col-lg-12
@@ -58,18 +58,12 @@ block content
       .container
         .row
           .col-lg-5.col-sm-6
-            hr.section-heading-spacer
-            .clearfix
-            h2.section-heading
-              | Death to the Stock Photo:
-              br
-              | Special Thanks
-            p.lead
-              | A special thanks to 
-              a(target='_blank', href='http://join.deathtothestockphoto.com/') Death to the Stock Photo
-              |  for providing the photographs that you see in this template. Visit their website to become a member.
+            #tickerFormReact
+            #stockTable
+            #bigGraph
+            #quotesTable
           .col-lg-5.col-lg-offset-2.col-sm-6
-            img.img-responsive(src='img/ipad.png', alt='')
+          
       // /.container
     // /.content-section-a
     

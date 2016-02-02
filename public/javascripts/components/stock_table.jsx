@@ -130,6 +130,18 @@ QuotesTable = React.createClass({
   }
 })
 
+TradesTable = React.createClass({
+  
+  render: function() {
+    return (
+      <div>
+      
+      </div>
+    )
+  }
+
+})
+
 module.exports = { 
   StockTable: StockTable, 
   TickerForm: TickerForm,
