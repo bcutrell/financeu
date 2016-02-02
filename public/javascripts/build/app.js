@@ -19875,7 +19875,6 @@ TickerForm = React.createClass({displayName: "TickerForm",
     event.preventDefault();
     var quote = $('#tickerInput').val();
     socket.emit('tickerInput', quote);
-    debugger;
     symbols.unshift([quote.toUpperCase(), quote]);
     this.newTradeViewGraph(symbols);
   },
@@ -19962,6 +19961,18 @@ React.createElement("div", null,
 )
     )
   }
+})
+
+TradesTable = React.createClass({displayName: "TradesTable",
+  
+  render: function() {
+    return (
+      React.createElement("div", null
+      
+      )
+    )
+  }
+
 })
 
 module.exports = { 
