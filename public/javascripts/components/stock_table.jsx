@@ -135,28 +135,28 @@ TradesTable = React.createClass({
   render: function() {
     return (
 <div>
-<div className="row">
-  <div className="col-md-12">
-    <h3 className="text-center">Trades</h3>
-  </div>
-</div>
-<div className="row">
-  <div className="col-md-12">
-    <div className="well well-lg">
-      <table className="table trade-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Last Price</th>
-            <th>VWAP</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody id="stream-trade-table"></tbody>
-      </table>
+  <div className="row">
+    <div className="col-md-12">
+      <h3 className="text-center">Trades</h3>
     </div>
   </div>
-</div>
+  <div className="row">
+    <div className="col-md-12">
+      <div className="well well-lg">
+        <table className="table trade-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Last Price</th>
+              <th>VWAP</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="stream-trade-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
     )
   }

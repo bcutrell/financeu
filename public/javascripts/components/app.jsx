@@ -28,7 +28,7 @@ React.render(
     document.getElementById('tradesTable')
 );
 
-React.render(
-    <ProjectGrid />,
-    document.getElementById('projectGrid')
-);
+// React.render(
+//     <ProjectGrid />,
+//     document.getElementById('projectGrid')
+// );

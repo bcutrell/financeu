@@ -19840,10 +19840,10 @@ React.render(
     document.getElementById('tradesTable')
 );
 
-React.render(
-    React.createElement(ProjectGrid, null),
-    document.getElementById('projectGrid')
-);
+// React.render(
+//     <ProjectGrid />,
+//     document.getElementById('projectGrid')
+// );
 
 },{"./project_grid.jsx":158,"./stock_table.jsx":159,"react":156}],158:[function(require,module,exports){
 var React = require('react');
@@ -20029,28 +20029,28 @@ TradesTable = React.createClass({displayName: "TradesTable",
   render: function() {
     return (
 React.createElement("div", null, 
-React.createElement("div", {className: "row"}, 
-  React.createElement("div", {className: "col-md-12"}, 
-    React.createElement("h3", {className: "text-center"}, "Trades")
-  )
-), 
-React.createElement("div", {className: "row"}, 
-  React.createElement("div", {className: "col-md-12"}, 
-    React.createElement("div", {className: "well well-lg"}, 
-      React.createElement("table", {className: "table trade-table"}, 
-        React.createElement("thead", null, 
-          React.createElement("tr", null, 
-            React.createElement("th", null, "Symbol"), 
-            React.createElement("th", null, "Last Price"), 
-            React.createElement("th", null, "VWAP"), 
-            React.createElement("th", null, "Time")
-          )
-        ), 
-        React.createElement("tbody", {id: "stream-trade-table"})
+  React.createElement("div", {className: "row"}, 
+    React.createElement("div", {className: "col-md-12"}, 
+      React.createElement("h3", {className: "text-center"}, "Trades")
+    )
+  ), 
+  React.createElement("div", {className: "row"}, 
+    React.createElement("div", {className: "col-md-12"}, 
+      React.createElement("div", {className: "well well-lg"}, 
+        React.createElement("table", {className: "table trade-table"}, 
+          React.createElement("thead", null, 
+            React.createElement("tr", null, 
+              React.createElement("th", null, "Symbol"), 
+              React.createElement("th", null, "Last Price"), 
+              React.createElement("th", null, "VWAP"), 
+              React.createElement("th", null, "Time")
+            )
+          ), 
+          React.createElement("tbody", {id: "stream-trade-table"})
+        )
       )
     )
   )
-)
 )
     )
   }
