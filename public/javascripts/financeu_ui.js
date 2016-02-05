@@ -29,6 +29,7 @@ function getQuoteData(socket) {
 
 function getQuoteStream(socket) {
   socket.on('quoteStream', function(result) {
+    debugger;
     if (result.success) {
       var date = new Date(result.datetime);
       var time = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
