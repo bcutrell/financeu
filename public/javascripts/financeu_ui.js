@@ -5,8 +5,6 @@
 var symbols = []
 var socket = io.connect();
 $(document).ready(function() {
-  $("#tickerForm").fadeIn(500);
-
   getQuoteStream(socket);
   getTradeStream(socket);
   getQuoteData(socket);
@@ -29,7 +27,6 @@ function getQuoteData(socket) {
 
 function getQuoteStream(socket) {
   socket.on('quoteStream', function(result) {
-    debugger;
     if (result.success) {
       var date = new Date(result.datetime);
       var time = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");

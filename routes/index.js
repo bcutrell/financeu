@@ -10,4 +10,8 @@ router.get('/demo', function(req, res, next) {
   res.render('demo');
 });
 
+router.get('/stocks', function(req, res, next) {
+  res.render('demo');
+});
+
 module.exports = router;
