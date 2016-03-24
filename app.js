@@ -58,11 +58,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var request = require("request");
-  request("http://localhost:8000/stocks", function(error, response, body) {
-    console.log(body);
-  });
-
 // Socket.io
 var socket_io    = require('socket.io');
 var io           = socket_io();

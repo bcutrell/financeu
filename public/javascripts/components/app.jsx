@@ -7,7 +7,6 @@ var TradesTable = require('./stock_table.jsx').TradesTable
 
 var ProjectGrid = require('./project_grid.jsx')
 
-
 React.render(
     <StockTable />,
     document.getElementById('stockTable')
