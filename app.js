@@ -63,11 +63,11 @@ var socket_io    = require('socket.io');
 var io           = socket_io();
 app.io           = io;
 
-var tradeking = require('./lib/tradeking_auth')
-var tradeking_consumer = tradeking.consumer()
-var config = tradeking.config();
+// var tradeking = require('./lib/tradeking_auth')
+// var tradeking_consumer = tradeking.consumer()
+// var config = tradeking.config();
 
-var tradeking_stream = require('./lib/tradeking_stream')
-tradeking_stream.listen(io)
+// var tradeking_stream = require('./lib/tradeking_stream')
+// tradeking_stream.listen(io)
 
 module.exports = app;

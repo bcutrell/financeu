@@ -1,0 +1,12 @@
+.DS_STORE
+node_modules
+*~
+*.log*
+chrome-user-data
+__build__
+__site__
+__site_prerender__
+internal
+docs/api
+dist
+*.swp

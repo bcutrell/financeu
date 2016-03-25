@@ -6,12 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/demo', function(req, res, next) {
-  res.render('demo');
+router.get('/tradeking', function(req, res, next) {
+  res.render('tradeking');
 });
 
 router.get('/stocks', function(req, res, next) {
-  res.render('demo');
+  res.render('stocks');
 });
 
 module.exports = router;

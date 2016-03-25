@@ -1,0 +1,15 @@
+{
+  "name": "fixed-data-table",
+  "homepage": "https://github.com/facebook/fixed-data-table",
+  "version": "0.6.0",
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.0",
+    "commit": "e778e68e769e066c31f4cb2b83439e150a616189"
+  },
+  "_source": "git://github.com/facebook/fixed-data-table.git",
+  "_target": "~0.6.0",
+  "_originalSource": "fixed-data-table",
+  "_direct": true
+}

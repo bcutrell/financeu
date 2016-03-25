@@ -1,0 +1,43 @@
+diff --git a/scripts/motif_investing/motif_investing/items.py b/scripts/motif_investing/motif_investing/items.py
+index 51a3818..240d51d 100644
+--- a/scripts/motif_investing/motif_investing/items.py
++++ b/scripts/motif_investing/motif_investing/items.py
+@@ -5,10 +5,12 @@
+ # See documentation in:
+ # http://doc.scrapy.org/en/latest/topics/items.html
+ 
+-import scrapy
++from scrapy.item import Item, Field
+ 
+ 
+-class MotifInvestingItem(scrapy.Item):
++class MotifInvesting(Item):
+     # define the fields for your item here like:
+     # name = scrapy.Field()
+-    pass
++    ticker = Field()
++    # add motif name
++
+diff --git a/scripts/motifalyze.py b/scripts/motifalyze.py
+index 72d6118..e729645 100644
+--- a/scripts/motifalyze.py
++++ b/scripts/motifalyze.py
+@@ -2,6 +2,8 @@ import Quandl
+ import pandas as pd
+ import numpy as np
+ 
++import code; code.interact(local=locals())
++
+ data = Quandl.get('GOOG/NYSE_IBM', collapse='weekly')
+ print data.head()
+ 
+diff --git a/scripts/requirements.txt b/scripts/requirements.txt
+index cc84766..f76b91e 100644
+--- a/scripts/requirements.txt
++++ b/scripts/requirements.txt
+@@ -3,4 +3,5 @@ pandas==0.18.0
+ numpy==1.8.0rc1
+ requests==2.9.1
+ Scrapy==1.0.5
++six==1.10.0
+ 

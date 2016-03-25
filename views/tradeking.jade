@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  //- MAKE BID AND ASK THEIR OWN BOXES
+  .big-red-box
+    .container
+      h1 FinanceU
+      a(href='/demo') A Big Link
+      .row
+        .col-md-6.col-md-offset-3
+          #tickerFormReact
+
+      br
+      .row
+        .col-md-12
+          .well.well-lg
+            #stockTable
+      .row
+        .col-md-12
+          #bigGraph
+
+      .row
+        .col-md-6
+          #quotesTable
+        
+        .col-md-6
+          #tradesTable
+            
+      .row
+        .col-md-8
+          p
+      .row
+        .col-md-8
+          h2 Calculator
+        .col-md-4
+          p
+            a(href='/home/calculator')
+              img(src='http://a.dryicons.com/images/icon_sets/grace_icons_set/png/256x256/calculator.png')
+      .row
+        .col-md-8
+          h2 Graphing
+        .col-md-4
+          a(href='/home/graph')
+            img(src='http://mauhan.me/wp-content/uploads/2013/05/line_graph_icon.png', height='256px', width='256px')
+      .row
+        .col-md-8
+          h2 News
+        .col-md-4
+          a(href='/home/news')
+            img(src='http://www.sans.org/images/design/custom/slider/newspaper-icon.png', height='256px', width='256px')
+
