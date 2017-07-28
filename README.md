@@ -17,13 +17,5 @@ Possible Add-ons
 
 Next steps:
 
-+ More styling
-
++ add text
 + store data
-
-+ tweets of the trade game
-
-+ delpoy
-
-+ add quandl
-https://www.quandl.com/tools/api

@@ -1,0 +1,11 @@
+{
+  "config": {
+    "consumer_key": "",
+    "consumer_secret" : "",
+    "access_token" : "",
+    "access_secret" : "",
+    "api_url": "https://api.tradeking.com/v1",
+    "stream_api_url": "https://stream.tradeking.com/v1"
+  }
+}
+
