@@ -1,7 +1,7 @@
 FinanceU
 ===================
 
-Currently a work in progress...
+A toy app built with TradeKing (before it was purchased by Ally) built with socket.io
 
 Main Dashboard
 -------------------
@@ -14,8 +14,3 @@ Streaming Data
 Possible Add-ons
 -------------------
 ![screenshot](http://i.imgur.com/VdJHkTF.png)
-
-Next steps:
-
-+ add text
-+ store data
